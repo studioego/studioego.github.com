@@ -62,6 +62,10 @@
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
   });
+  
+  FB.logout(function(response) {
+	// Person is now logged out
+  });
 
   };
 
