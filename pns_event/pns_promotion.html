@@ -20,8 +20,18 @@
 			}
 		});
 		
-		
 		$("#btnAgreeCheckFlag").click(function() {
+			if ( $("#btnAgreeCheckFlag").hasClass("on")) {
+				$("#btnAgreeCheckFlag").removeClass("on");
+				$("#agree").attr("checked", false);
+			}
+			else {
+				$("#btnAgreeCheckFlag").addClass("on");
+				$("#agree").attr("checked", true);
+			}
+		});
+		
+		$("#labelAgreeCheck").click(function() {
 			if ( $("#btnAgreeCheckFlag").hasClass("on")) {
 				$("#btnAgreeCheckFlag").removeClass("on");
 				$("#agree").attr("checked", false);
@@ -143,11 +153,10 @@
 								<option value="016">016</option>
 								<option value="018">018</option>
 							</select>
-						  <!--<input type="text" onclick="" maxlength="4" name="" id="" class="input_txt textbox rd20"  style=" width:24%; text-align:left;" /> -->
-                            - 
-                              <input type="text" maxlength="4" id="phone1" name="phone1"  class="input_txt textbox rd20"  style=" width:24%; text-align:left;" /> 
                               - 
-                              <input type="text" maxlength="4" id="phone2" name="phone2" class="input_txt textbox rd20"  style=" width:24%; text-align:left;" />
+                              <input type="number" maxlength="4" id="phone1" name="phone1"  class="input_txt textbox rd20"  style=" width:24%; text-align:left;" /> 
+                              - 
+                              <input type="number" maxlength="4" id="phone2" name="phone2" class="input_txt textbox rd20"  style=" width:24%; text-align:left;" />
                           </p>
                         </div>
 				</div>
@@ -157,7 +166,7 @@
 			<!--//전체동의 안내토스트-->
 			<div class="mAgree2">
 				<p class="check">
-					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="agree" value="Y" id="agree"><label for="agree">개인정보 이용동의</label>
+					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="agree" value="Y" id="agree"><label for="agree" id="labelAgreeCheck">개인정보 이용동의</label>
 				</p>
 				<div class="guide">*이용 업체:(주)민앤지 *이용목적:이벤트 경품 증정</div>
 			</div>
