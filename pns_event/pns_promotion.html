@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<link href="resources/pns_promotion/css/common.css" rel="stylesheet">
+	<link href="resources/pns_promotion/css/join2.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta content="telephone=no" name="format-detection">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" name="viewport">
+	<title>휴대폰번호도용방지서비스</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		//사용할 앱의 Javascript 키를 설정해 주세요.
+		Kakao.init('e2b2cc54a9fa8b423c2a8622bf856a37');
+
+		$("#phone1").keyup(function() {
+			if ($("#phone1").val().length == 4) {
+				$("#phone2").focus();
+			}
+		});
+		
+		$("#btnAgreeCheck").click(function() {
+			if ( $("#btnAgreeCheckFlag").hasClass("on")) {
+				$("#btnAgreeCheckFlag").removeClass("on");
+				$("#agree").attr("checked", "false");
+			}
+			else {
+				$("#btnAgreeCheckFlag").addClass("on");
+				$("#agree").attr("checked", "true");
+			}
+		});
+		
+	});
+	
+	function validClickKakaoPromotion() {
+		if ($("#phone1").val() == "") {
+			alert("휴대폰번호를 입력하세요.");
+			$("#phone1").focus();
+			return false;			
+		} 
+		if ($("#phone2").val() == "") {
+			alert("휴대폰번호를 입력하세요.");
+			$("#phone2").focus();
+			return false;
+		}
+		
+		if (!isNum($("#phone1").val())) {
+			alert("숫자를 입력하세요.");
+			$("#phone1").focus();
+			return false;
+		}
+
+		if (!isNum($("#phone2").val())) {
+			alert("숫자를 입력하세요.");
+			$("#phone2").focus();
+			return false;
+		}
+			
+		if (!isPhoneNum($("#phone1").val(),$("#phone2").val())){
+			$("#phone1").focus();
+			return false;
+		}	
+			
+		if (!$("#agree").is(":checked")) {
+			alert("개인정보제공 동의하셔야 합니다");
+			return false;
+		}
+		
+		clickKakaoPromotion();
+
+	}
+
+	function clickKakaoPromotion() {
+		// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+		Kakao.Link.createTalkLinkButton({
+		  container: '#kakao-link-btn',
+		  label: '[자신있는 추천!]\n너의 개인정보 안녕하니?\n내가 쓰는 보호 서비스 추천!',
+		  image: {
+			src: 'https://content2.minwise.co.kr/pns/resources/images/homepage/sub_img_07.gif',
+			width: '258',
+			height: '80'
+		  },
+		  webButton: {
+			  text: '휴대폰 도용방지 서비스',
+			  url: 'http://ipns.kr/pns' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+		  },
+		  fail: function() { // 카카오톡 설치가 안되었을 경우 실행 
+			alert("카카오톡이 설치된 모바일에서만 사용 가능합니다.")
+		  }
+		});
+	}
+	// 숫자확인
+	function isNum (v) {
+		return !isNaN(parseFloat(v)) && isFinite(v);
+	}
+
+	// 휴대폰번호를 입력시 올바른 휴대폰 번호인지 체크 
+	function isPhoneNum(phone1, phone2) {
+		if(phone1 != "" && phone2 != "") {
+			var rgEx = /(01[016789])[-](\d{4}|\d{3})[-]\d{4}$/g; 
+			var strValue = $("#phone_mid").val() +"-"+phone1+"-"+phone2;
+			var chkFlg = rgEx.test(strValue);  
+			if(!chkFlg){
+				alert("올바른 휴대폰번호가 아닙니다.");
+				return false;
+			}
+			return true;
+		}
+	}
+	</script>
+	</head>
+<body class="body_mainbg">
+
+<div id="wrap">	
+
+	<!-- 컨텐츠영역 -->
+	<div id="container">
+		<div class="spot">
+			<img src="resources/pns_promotion/images/mobile/top_img.png" width="100%"/>
+            <img src="resources/pns_promotion/images/mobile/middle_img.png" width="100%"/>
+			<div style="display:none;">
+			  <h3>스미싱, 해킹, 피싱 피해액 연 750억!본인확인 인증번호 유출 방지</h3>
+				<ul>
+					<li>인증번호 유출시 카드발급 대출신청등 피해 발생</li>
+					<li>비밀번호를 통한 본인확인 인증번호 유출 차단</li>
+					<li>본인확인 발생시 실시간 SMS 알림 지원</li>
+				</ul>
+			</div>
+		</div>	
+		<!-- 서비스가입 버튼 -->
+        <div class="join_area">
+        			<div class="fselec_area">
+				      <div class="basic_input3">
+                         <div>
+                          <p>
+							<select id="phone_mid" name="phone_mid"  class="input_txt textbox rd20"  style=" width:24%; text-align:left;" >
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="017">017</option>
+								<option value="019">019</option>
+								<option value="016">016</option>
+								<option value="018">018</option>
+							</select>
+						  <!--<input type="text" onclick="" maxlength="4" name="" id="" class="input_txt textbox rd20"  style=" width:24%; text-align:left;" /> -->
+                            - 
+                              <input type="text" maxlength="4" id="phone1" name="phone1"  class="input_txt textbox rd20"  style=" width:24%; text-align:left;" /> 
+                              - 
+                              <input type="text" maxlength="4" id="phone2" name="phone2" class="input_txt textbox rd20"  style=" width:24%; text-align:left;" />
+                          </p>
+                        </div>
+				</div>
+			</div>
+        </div>
+		<div class="join_area2">
+			<!--//전체동의 안내토스트-->
+			<div class="mAgree2">
+				<p class="check">
+					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="" value="Y" id="agree"><label for="">개인정보 이용동의</label>
+				</p>
+				<div class="guide">*이용 업체:(주)민앤지 *이용목적:이벤트 경품 증정</div>
+			</div>
+			<div class="click_area">
+			  <span class="bbasic">
+				<a id="kakao-link-btn" onClick="validClickKakaoPromotion()" >
+				<button type="button"><img src="resources/pns_promotion/images/mobile/kakaotalk.png" width="13%"> 카톡으로 추천하기</button></span>
+				<!-- [D] lgt 일때 <span class="bbasic"> -->
+				</a>
+			</div>
+		</div>
+		<!-- //서비스가입 버튼 -->
+	</div>
+	<!-- //컨텐츠영역 -->
+</div>
+<div id="footer">
+<img src="resources/pns_promotion/images/mobile/footer_img.png" width="100%">
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+html, body{
+ position:relative;
+ height: 100%;
+}
+
+body {
+    color: #58637a;
+    font: 12px/1.4 돋움,Dotum,굴림,Gulim,Apple-Gothic,sans-serif;
+	line-height: 16px;
+	position: static !important;
+	-webkit-text-size-adjust: 100%;
+}
+body.rest {
+    font-family: 돋움,Dotum,굴림,Gulim,Apple-Gothic,Helvetica,sans-serif;
+}
+body.safari {
+    font-family: Helvetica;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, button, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+img, fieldset {
+    border: 0 none;
+}
+img, input {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+ul, ol, li {
+    list-style: none outside none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+hr {
+    display: none;
+}
+a {
+    color: inherit;
+}
+a, a:link {
+    color: #333333;
+    text-decoration: none;
+}
+em, i, address,p {
+    font-style: normal;
+    font-weight: normal;
+}
+legend, caption {
+    clear: both;
+    display: none;
+}
+input, textarea, select, button, table {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+	color:#3a3d3f;
+}
+textarea, input {
+    outline: medium none;
+}
+textarea {
+    resize: none;
+}
+label {
+    cursor: pointer;
+}
+a:visited {
+    color: #333333;
+}
+a:hover, a:active {
+    color: #333333;
+    text-decoration: none;
+}
+.hide {
+    font-size: 0;
+    height: 0;
+    left: -9999px;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    width: 0;
+}
+input[type="button"], input[type="text"], input[type="image"], input[type="submit"] {
+}
+input[type="checkbox"]:checked {
+    background-color: #FFFFFF;
+}
+button, input[type="reset"], input[type="button"], input[type="submit"] {
+    line-height: normal !important;
+}
+button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+article, aside, canvas, details, embed, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    display: block;
+}
+command, datalist, keygen, mark, meter, progress, rp, rt, ruby, time, wbr {
+    display: inline;
+}
+
