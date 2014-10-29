@@ -31,24 +31,17 @@
 			}
 		});
 		
-		// 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-		//Kakao.Link.createTalkLinkButton({
-		//  container: '#kakao-link-btn',
-		//  label: '[자신있는 추천!]\n너의 개인정보 안녕하니?\n내가 쓰는 보호 서비스 추천!',
-		//  image: {
-		//	src: 'https://content2.minwise.co.kr/pns/resources/images/homepage/sub_img_07.gif',
-		//	width: '258',
-		//	height: '80'
-		//  },
-		//  webButton: {
-		//	  text: '휴대폰 도용방지 서비스',
-		//	  url: 'http://ipns.kr/pns' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-		//  },
-		//  fail: function() { // 카카오톡 설치가 안되었을 경우 실행 
-		//	alert("카카오톡이 설치된 모바일에서만 사용 가능합니다.");
-		//	return;
-		//  }
-		//});
+		$("#btnAgreeCheckFlag").click(function() {
+			if ( $("#btnAgreeCheckFlag").hasClass("on")) {
+				$("#btnAgreeCheckFlag").removeClass("on");
+				$("#agree").attr("checked", "false");
+			}
+			else {
+				$("#btnAgreeCheckFlag").addClass("on");
+				$("#agree").attr("checked", "true");
+			}
+		});
+		
 	});
 	
 	function validClickKakaoPromotion() {
@@ -174,7 +167,7 @@
 			<!--//전체동의 안내토스트-->
 			<div class="mAgree2">
 				<p class="check">
-					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="" value="Y" id="agree"><label for="">개인정보 이용동의</label>
+					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="agree" value="Y" id="agree"><label for="">개인정보 이용동의</label>
 				</p>
 				<div class="guide">*이용 업체:(주)민앤지 *이용목적:이벤트 경품 증정</div>
 			</div>
