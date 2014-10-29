@@ -34,11 +34,11 @@
 		$("#labelAgreeCheck").click(function() {
 			if ( $("#btnAgreeCheckFlag").hasClass("on")) {
 				$("#btnAgreeCheckFlag").removeClass("on");
-				$("#agree").attr("checked", false);
+				$("input[id='agree']:checkbox").attr("checked", false);
 			}
 			else {
 				$("#btnAgreeCheckFlag").addClass("on");
-				$("#agree").attr("checked", true);
+				$("input[id='agree']:checkbox").attr("checked", true);
 			}
 		});
 		
@@ -72,8 +72,8 @@
 			$("#phone1").focus();
 			return false;
 		}	
-			
-		if (!$("#agree").is(":checked")) {
+		var isChecked = $("#agree").attr("checked");
+		if (!isChecked) {
 			alert("개인정보제공 동의하셔야 합니다");
 			return false;
 		}
@@ -84,9 +84,9 @@
 
 	function clickKakaoPromotion() {
 		Kakao.Link.sendTalkLink({
-			label: '[자신있는 추천!]\n너의 개인정보 안녕하니?\n내가 쓰는 보호 서비스 추천!',
+			label: '너의 개인정보는 안녕하니? 내가 쓰는 개인정보보호 서비스 추천!',
 			image: {
-				src: 'https://content2.minwise.co.kr/pns/resources/images/homepage/sub_img_07.gif',
+				src: 'http://ipns.kr/pns/resources/event/katalk_pp_img.png',
 				width: '258',
 				height: '80'
 			},
@@ -166,7 +166,7 @@
 			<!--//전체동의 안내토스트-->
 			<div class="mAgree2">
 				<p class="check">
-					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="agree" value="Y" id="agree"><label for="agree" id="labelAgreeCheck">개인정보 이용동의</label>
+					<span id="btnAgreeCheckFlag"><button id="btnAgreeCheck" type="button"></button></span><input type="checkbox" style="display: none;" name="agree" value="Y" id="agree"><label id="labelAgreeCheck">개인정보 이용동의</label>
 				</p>
 				<div class="guide">*이용 업체:(주)민앤지 *이용목적:이벤트 경품 증정</div>
 			</div>
