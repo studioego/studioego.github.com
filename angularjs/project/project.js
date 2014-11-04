@@ -57,7 +57,7 @@ angular.module('project', ['ngRoute', 'firebase'])
            $location.path('/');
         });
     };
-});
+})
 .controller('EditCtrl',
   function($scope, $location, $routeParams, Projects) {
     var projectId = $routeParams.projectId,
