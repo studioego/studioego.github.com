@@ -13,4 +13,6 @@ Markdown test.
 
 DaeHyun's github.
 
-[GNOME gucharmap](https://wiki.gnome.org/Apps/Gucharmap)
+[GNOME gucharmap]
+
+[GNOME gucharmap]: https://wiki.gnome.org/Apps/Gucharmap
