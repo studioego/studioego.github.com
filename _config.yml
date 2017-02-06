@@ -17,8 +17,8 @@ title: DaeHyun's github blog
 email: sungdh86+git@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   GNOME & KDE Contributor & Open Source Developer. My native language is Korean(한국어). My hobby is Learning Language(English,漢語/汉语,日本語 #GNOME #Unicode #CJK #文字 #문자 #이상한모임
-baseurl: "/blog" # the subpath of your site, e.g. /blog
-url: "https://studioego.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: studioego
 github_username:  studioego
 
