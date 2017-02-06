@@ -1,4 +1,10 @@
-﻿<!DOCTYPE HTML>
+﻿---  
+# You don't need to edit this file, it's empty on purpose.  
+# Edit theme's home layout instead if you wanna make some changes  
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults  
+layout: home  
+---  
+<!DOCTYPE HTML>
 <html lang="ko-kr">
 <head>
 	<meta charset="utf-8">
@@ -84,10 +90,16 @@
       </div>
     </nav>
 	<!-- Begin page content -->
-    <div class="container">
+    <div class="container" id="home">
       <div class="page-header">
 		<h1>This page is StudioEgo's github page</h1>
 	  </div>
+		 <h1>Blog Posts</h1>
+	   <ul class="posts">
+		{% for post in site.posts %}
+		  <li><span>{{ post.date | date_to string }} </span> &raquo; <a href="{{ site.baseurl }}{{post.url}}"> {{post.title}}</a></li>
+		{% endfor %}
+	   </ul>
       <h2>Hello World!</h2>
 	  <p>Implementing Responsive Web Design using <a href="http://getbootstrap.com/">Bootstrap</a></p>
 	  <p><a href="http://blog.studioego.info/" class="btn btn-large"><i class="fa fa-rss-square"></i> Blog</a></p>
