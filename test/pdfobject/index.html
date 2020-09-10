@@ -1,0 +1,18 @@
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/js/jquery/jquery-1.11.1.min.js"></script>
+<script src='pdfobject.min.js'></script>
+<script>
+$(document).ready(function() {
+    PDFObject.embed("../pdf/develop_open_korean_dictionary.pdf", "#my-container");
+});
+</script>
+</head>
+<body>
+<h1>PDF Object example</h1>
+<p>This browser does not support inline PDFs. Please download the PDF to view it: <a href="../pdf/develop_open_korean_dictionary.pdf">Download PDF</a></p>
+<div id="my-container"></div>
+</body>
+</html>
