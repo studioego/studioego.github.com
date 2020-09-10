@@ -33,3 +33,5 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+timezone: Asia/Seoul
+encoding: utf-8
